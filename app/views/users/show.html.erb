@@ -1,3 +1,7 @@
+<h1><%= @user.username %>'s Wall'</h1>
+<%= link_to "Home Page", posts_path %>
+
+
 <% @posts.each do |post| %>
 
   <h2><%= link_to post.user.username, user_wall_url(post.user.id) %></h2>
@@ -31,5 +35,3 @@
   <% end %>
 
 <% end %>
-
-<%= link_to "New post", new_post_path %>
