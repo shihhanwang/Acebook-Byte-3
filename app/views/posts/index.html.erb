@@ -1,6 +1,8 @@
 <% @posts.each do |post| %>
   <p><%= post.message %></p>
   <p><%= post.updated_at %></p>
+  <p>Likes: <%= post.likes.size %> ||
+  <%= link_to 'Like', post_add_like_path(post), method: :post %></p>
   <br>
 <% end %>
 
