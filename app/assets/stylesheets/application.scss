@@ -1,8 +1,26 @@
-li{
+body {
+  background-image: url("https://www.freevector.com/uploads/vector/preview/18442/Free_Cartoon_Cow_Vector.png");
+  background-color:rgb(200, 205, 203);
+  background-repeat: repeat;
+}
+
+li {
   margin-left: 20px;
 }
 
-.navbar-nav > li > a {
-    color: rgb(213, 215, 232);
+.navbar {
+  font-family: Courier;
 }
+
+.navbar-nav > li > a {
+  color: rgb(213, 215, 232);
+}
+
+.jumbotron {
+  font-family: Comic Sans MS;
+  background-color:rgba(177, 170, 170, 0.6) !important;
+  text-align: center;
+  margin-top: 20%;
+}
+
 @import "bootstrap";
