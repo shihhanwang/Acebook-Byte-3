@@ -1,3 +1,7 @@
+body {
+  background-color: #B9D3B8 !important;
+}
+
 li {
   margin-left: 20px;
 }
@@ -9,5 +13,16 @@ li {
 .navbar-nav > li > a {
     color: rgb(213, 215, 232);
 }
+
+.container {
+  text-align: center;
+  font-family: Comic Sans MS;
+}
+
+.container img{
+  opacity: 0.8;
+  width: 45%;
+}
+
 
 @import "bootstrap";
