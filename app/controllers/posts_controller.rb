@@ -21,12 +21,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.create(post_params)
+    params = post_params
+    params['wall_id'] = params['wall_id'].to_i
+    @post = current_user.posts.create(params)
     redirect_to posts_url
   end
 
   def edit
-
     @postid = Post.find(params[:id]).user_id
     if current_user.id == @postid
       @post = Post.find(params[:id])
@@ -55,6 +56,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:message)
+    params.require(:post).permit(:message, :wall_id)
   end
 end
