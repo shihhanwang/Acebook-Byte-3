@@ -30,6 +30,9 @@
     <%= f.text_field :content %>
   <% end %>
 
+  <p>Likes: <%= post.likes.size %> ||
+  <%= link_to 'Like', post_add_like_path(post), method: :post %></p>
+
 <% end %>
 
 <%= link_to "New post", new_post_path %>
