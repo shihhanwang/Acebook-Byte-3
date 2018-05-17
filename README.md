@@ -1,5 +1,14 @@
 # AceBook
 
+
+To run this app on your local server, clone it, then run `bundle install`.
+If you haven't got rails installed, install that.
+From here, run `bin/rails db:create`, and then `bin/rails db:migrate`.
+
+
+---
+
+
 Fork this repository to `acebook-teamname` and customize
 the below**
 
@@ -22,5 +31,3 @@ First, clone this repository. Then:
 > bundle exec rspec # Run the tests to ensure it works
 > bin/rails server # Start the server at localhost:3000
 ```
-
-miaow
