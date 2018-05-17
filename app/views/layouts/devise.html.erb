@@ -3,16 +3,12 @@
   <head>
     <title>Acebook</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag    'devise', media: 'all' %>
   </head>
 
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <p class="notice"><%= flash[:success] %></p>
-    <%= render 'devise/shared/logout_items.html.erb' %>
     <%= yield %>
   </body>
 </html>

@@ -25,8 +25,31 @@ class PostsController < ApplicationController
     redirect_to posts_url
   end
 
+  def edit
+
+    @postid = Post.find(params[:id]).user_id
+    if current_user.id == @postid
+      @post = Post.find(params[:id])
+    else
+      redirect_to posts_url
+    end
+
+  end
+
+  def update
+    @postid = Post.find(params[:id])
+    @post = @postid.update(post_params)
+    redirect_to posts_url
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_url
+  end
+
   def index
-    @posts = Post.all.order(created_at: :asc)
+    @posts = Post.all.reverse
   end
 
   private
