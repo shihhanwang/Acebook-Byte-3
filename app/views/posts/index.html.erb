@@ -1,8 +1,13 @@
 <% @posts.each do |post| %>
 
-  <h2><%= link_to post.user.username, user_wall_url(post.user.id) %></h2>
-  <h2><%= post.message %></h2>
-  <h3><%= post.updated_at %></h3>
+  <h2>From: <%= link_to post.user.username, user_wall_url(post.user.id) %></h2>
+  
+  <% if post.wall && post.wall.id != 0 && post.wall.id != post.user.id %>
+    <h2>To: <%= link_to post.wall.username, user_wall_url(post.wall.id) %></h2>
+  <% end %>
+
+  <h2> Message: <%= post.message %></h2>
+  <h3> Created at: <%= post.updated_at %></h3>
 
   <% if current_user.id == post.user_id %>
     <%= link_to 'Edit', edit_post_path(post) %>
