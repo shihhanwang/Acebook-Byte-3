@@ -14,7 +14,7 @@ RSpec.feature "Timeline", type: :feature do
     expect(page).to have_content("test1's Wall")
   end
 
-  scenario "User can sign in" do
+  scenario "User can log in" do
     signup
     click_link "Logout"
     click_link "Log in"
@@ -64,8 +64,7 @@ RSpec.feature "Timeline", type: :feature do
     signup
     create_post
     fill_in "comment_content", with: "Awesome"
-    find("form input[id=comment_content]").set "\n"
-
+    # find("form input[id=comment_content]").set "\n"
     expect(page).to have_content("comment: Awesome")
   end
 end
