@@ -34,15 +34,20 @@ User related operations such as user authentication and secure storage of passwo
 #### Testing / Linting / Test coverage
 
 
-Feature tests done using Capybara and Selenium webdriver. 
+Feature tests are written using Capybara and Selenium webdriver. 
 
-Rubocop for styling errors.
-
-Simplecov gem to ensure full test coverage.
+We used Rubocop to check for styling errors and Simplecov gem to ensure full test coverage.
 
 
-The card wall is here: https://waffle.io/shihhanwang/Acebook-Byte-3/join
+## Workflow/ Process
 
+We were using several agile/XP techniques- daily standups and retros, pair programming and a version of [Kanban board]
+(https://waffle.io/shihhanwang/Acebook-Byte-3/join).
+We also kept a log of the standups, retros and daily work in github wiki.
+
+We had no experience using Ruby or Rails, Travis and Heroku, so learning the technologies was part of the process. Our learning notes can be seen in the project wiki.
+
+We used Travis CI and Heroku pipeline for continous delivery
 
 ## Team 
 
