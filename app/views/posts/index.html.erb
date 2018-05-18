@@ -1,13 +1,17 @@
 
 <div id="posts">
+  <h2>
+  <%= link_to "New post", new_post_path(@user.id) %>
+  </h2>
   <div class="wrapper">
     <div class="panel panel-default">
       <% @posts.each do |post| %>
         <div class="panel-body">
-          <h4>From: <%= link_to post.user.username.upcase, user_wall_url(post.user.id) %></h4>
+          <h4><%= link_to post.user.username.upcase, user_wall_url(post.user.id) %>
           <% if post.wall && post.wall.id != 0 && post.wall.id != post.user.id %>
-            <h4>To: <%= link_to post.wall.username.upcase, user_wall_url(post.wall.id) %></h4>
+            => <%= link_to post.wall.username.upcase, user_wall_url(post.wall.id) %>
           <% end %>
+          </h4>
           <hr>
           <p>
           <h2><%= post.message %></h2>
@@ -21,7 +25,9 @@
               <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
           <% end %>
+          <div id="likes">
           Likes: <%= post.likes.size %>
+          </div>
           <% if post.comments %>
             <% post.comments.each do |c| %>
               <hr>
@@ -36,15 +42,16 @@
           <% end %>
           <hr>
           <div class="input-group">
+            <div class="form-control">
+              <%= form_for [post, post.comments.new ] do |f| %>
+                <%= f.text_field :content, placeholder: "Say something..." %>
+                <%= f.submit "Moo", class: "btn btn-default" %>
+              <% end %>
+            </div>
             <div class="input-group-btn">
               <button class="btn btn-default">
                 <%= link_to 'Like', post_add_like_path(post), method: :post %>
               </button>
-            </div>
-            <div class="form-control">
-              <%= form_for [post, post.comments.new ] do |f| %>
-                <%= f.text_field :content, placeholder: "Say something..." %>
-              <% end %>
             </div>
           </div>
           <br/>
@@ -53,4 +60,3 @@
     </div>
   </div>
 </div>
-<%= link_to "New post", new_post_path %>
