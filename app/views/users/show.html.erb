@@ -1,12 +1,16 @@
-<h1><%= @user.username %>'s Wall'</h1>
-<%= link_to "Home Page", posts_path %>
-
+<div class="wall">
+  <h1><%= @user.username %>'s Wall'</h1>
 
 <% @posts.each do |post| %>
 
-  <h2><%= link_to post.user.username, user_wall_url(post.user.id) %></h2>
-  <h2><%= post.message %></h2>
-  <h3><%= post.updated_at %></h3>
+  <h2>From: <%= link_to post.user.username, user_wall_url(post.user.id) %></h2>
+
+  <% if post.wall && post.wall_id != 0 && post.wall.id != post.user.id %>
+    <h2> To: <%= link_to post.wall.username, user_wall_url(post.wall.id) %></h2>
+  <% end %>
+
+  <h2> Message: <%= post.message %></h2>
+  <h3> Created at: <%= post.updated_at %></h3>
 
   <% if current_user.id == post.user_id %>
     <%= link_to 'Edit', edit_post_path(post) %>
@@ -32,8 +36,14 @@
   <%= form_for [post, post.comments.new ] do |f| %>
     <%= f.label :comment %>
     <%= f.text_field :content %>
+    <%= f.submit "Moo" %>
   <% end %>
   <p>Likes: <%= post.likes.size %> ||
   <%= link_to 'Like', post_add_like_path(post), method: :post %></p> 
 
 <% end %>
+
+</div>
+
+<%= link_to "New post", new_post_path(@user.id) %>
+

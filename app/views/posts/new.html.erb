@@ -1,4 +1,6 @@
+<% @wall = (id = /\d+$/.match(request.original_url).to_a[0]) ? id : 0 %>
 <%= form_for @post do |form| %>
+  <%= form.hidden_field :wall_id, :value => @wall %>
   <%= form.label :message %>
   <%= form.text_field :message %>
 
