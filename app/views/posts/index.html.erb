@@ -17,7 +17,8 @@
           <h2><%= post.message %></h2>
           <p>
           <div id="time">
-            <%= post.updated_at %>
+            <% t = post.updated_at + (60 * 60) %>
+            <%= t.strftime('%H:%M:%S | %d %m %Y') %>
           </div>
           <% if current_user.id == post.user_id %>
             <div id="edit_delete">
