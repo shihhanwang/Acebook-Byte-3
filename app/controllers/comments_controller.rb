@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   before_action :set_post
 
   def create
@@ -12,7 +11,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = @post.comments.find(params[:id])
     @comment.destroy
-    flash[:success] = "Comment deleted!"
+    flash[:success] = 'Comment deleted!'
     redirect_to posts_url
   end
 
@@ -25,5 +24,4 @@ class CommentsController < ApplicationController
   def set_post
     @post = Post.find(params[:post_id])
   end
-
 end

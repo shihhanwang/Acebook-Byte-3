@@ -12,7 +12,5 @@ Rails.application.routes.draw do
   resources :likes
   get '/:id/wall', to: 'users#show', as: :user_wall
 
-
-  root(to: "welcome#index")
-
+  root(to: 'welcome#index')
 end
