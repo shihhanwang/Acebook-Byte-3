@@ -11,8 +11,6 @@ class PostsController < ApplicationController
   end
 
   def show_likes
-    puts 'Showing likes..'
-    puts params
     Like.count.select { |like| like.post_id == params['post_id'] }
   end
 
@@ -23,6 +21,9 @@ class PostsController < ApplicationController
   def create
     params = post_params
     params['wall_id'] = params['wall_id'].to_i
+    if(params['wall_id'] == 0)
+      params.delete('wall_id')
+    end
     @post = current_user.posts.create(params)
     redirect_to posts_url
   end
