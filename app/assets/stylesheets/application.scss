@@ -27,9 +27,6 @@ li {
   background-color: rgba(219, 217, 208, 0.53);
 }
 
-// #posts{
-//   background-color: rgba(208, 190, 208, 0.66);
-// }
 
 .wrapper, .row {
    height: 100%;
@@ -55,11 +52,16 @@ li {
   padding-top: 3%;
   padding-left: 5%;
   padding-right: 5%;
+  border-radius: 5px;
 }
 
 .panel textarea, .well textarea, textarea.form-control
 {
    resize: none;
+}
+
+#posts {
+  font-family: Comic Sans MS;
 }
 
 #comment a {
@@ -74,8 +76,44 @@ li {
   text-align: right;
 }
 
+#likes {
+  color:rgb(110, 173, 230);
+}
+
 a:link {
   color:rgba(127, 122, 134, 0.8);
+}
+
+input {
+  width: 100%;
+}
+
+#wall {
+  font-family: Comic Sans MS;
+}
+
+h1 {
+  text-align: center;
+  background-color: rgba(#f1bcba, 0.82);
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+  background-color: rgba(231, 225, 233, 0.92);
+  border-radius: 5px;
+}
+
+#newpost {
+  background-color: rgba(241, 188, 186, 0.82);
+  padding-bottom: 20%;
+  padding-top: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: center;
+  font-family: Comic Sans MS;
+  font-size: 20px;
+  border-radius: 15px;
 }
 
 
