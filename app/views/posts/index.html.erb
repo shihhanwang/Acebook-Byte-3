@@ -1,9 +1,13 @@
+
 <div id="posts">
   <div class="wrapper">
     <div class="panel panel-default">
       <% @posts.each do |post| %>
         <div class="panel-body">
-          <h4><%= link_to post.user.username.upcase, user_wall_url(post.user.id) %></h4>
+          <h4>From: <%= link_to post.user.username.upcase, user_wall_url(post.user.id) %></h4>
+          <% if post.wall && post.wall.id != 0 && post.wall.id != post.user.id %>
+            <h4>To: <%= link_to post.wall.username.upcase, user_wall_url(post.wall.id) %></h4>
+          <% end %>
           <hr>
           <p>
           <h2><%= post.message %></h2>
@@ -17,6 +21,7 @@
               <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
           <% end %>
+          Likes: <%= post.likes.size %>
           <% if post.comments %>
             <% post.comments.each do |c| %>
               <hr>
@@ -32,7 +37,9 @@
           <hr>
           <div class="input-group">
             <div class="input-group-btn">
-              <button class="btn btn-default">+ like</button>
+              <button class="btn btn-default">
+                <%= link_to 'Like', post_add_like_path(post), method: :post %>
+              </button>
             </div>
             <div class="form-control">
               <%= form_for [post, post.comments.new ] do |f| %>
@@ -47,26 +54,3 @@
   </div>
 </div>
 <%= link_to "New post", new_post_path %>
-
-<!-- <div class="wrapper">
-<div class="panel panel-default">
-  <div class="panel-body">
-    <h4>username</h4>
-     <hr>
-      <p>
-        Message
-      </p>
-    <hr>
-    <form>
-      <div class="input-group">
-        <div class="input-group-btn">
-          <button class="btn btn-default">+ like</button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
-        </div>
-        <input type="text" class="form-control" placeholder="Add a comment..">
-      </div>
-    </form>
-  </div>
-</div>
-
-
-</div> -->
