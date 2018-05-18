@@ -12,13 +12,13 @@ each user also has their own wall. A user can post on the general wall, any othe
 
 Clone the repo https://github.com/shihhanwang/Acebook-Byte-3.git
 
-Run *bundle install* (to install dependencies)
+Run `bundle install` (to install dependencies)
 
-Run *rake db:create* (to create database)
+Run `rake db:create` (to create database)
 
-Run *rake db:migrate* (to apply latest database version)
+Run `rake db:migrate` (to apply latest database version)
 
-Run *rails s* to start the server
+Run `rails s` to start the server
 
 ## Technology
 
