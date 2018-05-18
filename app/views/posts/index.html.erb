@@ -1,43 +1,56 @@
-<% @posts.each do |post| %>
 
-  <h2>From: <%= link_to post.user.username, user_wall_url(post.user.id) %></h2>
-  
-  <% if post.wall && post.wall.id != 0 && post.wall.id != post.user.id %>
-    <h2>To: <%= link_to post.wall.username, user_wall_url(post.wall.id) %></h2>
-  <% end %>
-
-  <h2> Message: <%= post.message %></h2>
-  <h3> Created at: <%= post.updated_at %></h3>
-
-  <% if current_user.id == post.user_id %>
-    <%= link_to 'Edit', edit_post_path(post) %>
-    <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-
-  <% if post.comments %>
-    <% post.comments.each do |c| %>
-      <br/>
-      user:
-      <%= c.user.username %>
-      <br/>
-      comment:
-      <%= c.content %>
-
-      <%if c.user == current_user %>
-        <%= link_to "Delete", post_comment_path(post, c), method: :delete %>
-      <%end%>
-
-    <% end %>
-  <% end %>
-
-  <%= form_for [post, post.comments.new ] do |f| %>
-    <%= f.label :comment %>
-    <%= f.text_field :content %>
-  <% end %>
-
-  <p>Likes: <%= post.likes.size %> ||
-  <%= link_to 'Like', post_add_like_path(post), method: :post %></p>
-
-<% end %>
-
+<div id="posts">
+  <div class="wrapper">
+    <div class="panel panel-default">
+      <% @posts.each do |post| %>
+        <div class="panel-body">
+          <h4>From: <%= link_to post.user.username.upcase, user_wall_url(post.user.id) %></h4>
+          <% if post.wall && post.wall.id != 0 && post.wall.id != post.user.id %>
+            <h4>To: <%= link_to post.wall.username.upcase, user_wall_url(post.wall.id) %></h4>
+          <% end %>
+          <hr>
+          <p>
+          <h2><%= post.message %></h2>
+          <p>
+          <div id="time">
+            <%= post.updated_at %>
+          </div>
+          <% if current_user.id == post.user_id %>
+            <div id="edit_delete">
+              <%= link_to 'Edit', edit_post_path(post) %>
+              <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          <% end %>
+          Likes: <%= post.likes.size %>
+          <% if post.comments %>
+            <% post.comments.each do |c| %>
+              <hr>
+              <div id="comment">
+                <%= c.user.username.upcase %>
+                <%= c.content %>
+                <%if c.user == current_user %>
+                  <%= link_to "Delete", post_comment_path(post, c), method: :delete %>
+                <%end%>
+              </div>
+            <% end %>
+          <% end %>
+          <hr>
+          <div class="input-group">
+            <div class="input-group-btn">
+              <button class="btn btn-default">
+                <%= link_to 'Like', post_add_like_path(post), method: :post %>
+              </button>
+            </div>
+            <div class="form-control">
+              <%= form_for [post, post.comments.new ] do |f| %>
+                <%= f.text_field :content, placeholder: "Say something..." %>
+              <% end %>
+            </div>
+          </div>
+          <br/>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 <%= link_to "New post", new_post_path %>

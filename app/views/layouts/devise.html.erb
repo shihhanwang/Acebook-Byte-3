@@ -7,8 +7,14 @@
   </head>
 
   <body>
+    <%= render 'layouts/header'%>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="container" >
+       <img class="align-self-start mr-3" src="https://www.freevector.com/uploads/vector/preview/18343/free-vector-cartoon-cow-set.jpg" alt="Generic placeholder image">
+       <div class="media-body">
+          <%= yield %>
+       </div>
+    </div>
   </body>
 </html>
