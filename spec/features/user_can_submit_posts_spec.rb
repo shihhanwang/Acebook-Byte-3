@@ -11,7 +11,7 @@ RSpec.feature 'Timeline', type: :feature do
     fill_in 'user_password', with: 'test-1'
     fill_in 'user_password_confirmation', with: 'test-1'
     click_button 'Sign up'
-    expect(page).to have_content("test1's Wall")
+    expect(page).to have_content("TEST1's Wall")
   end
 
   scenario 'User can log in' do
@@ -21,7 +21,7 @@ RSpec.feature 'Timeline', type: :feature do
     fill_in 'user_email', with: 'test1@gmail.com'
     fill_in 'user_password', with: 'test-1'
     click_button 'Log in'
-    expect(page).to have_content("test1's Wall")
+    expect(page).to have_content("TEST1's Wall")
   end
 
   scenario 'User can submit posts and view them' do
@@ -48,11 +48,22 @@ RSpec.feature 'Timeline', type: :feature do
   end
 
   scenario 'User can post on other users walls' do
+    visit '/'
+    click_link 'Sign up'
+    fill_in 'user_username', with: 'test2'
+    fill_in 'user_email', with: 'test2@gmail.com'
+    fill_in 'user_password', with: 'test-2'
+    fill_in 'user_password_confirmation', with: 'test-2'
+    click_button 'Sign up'
+    create_post
+    click_link 'Log out'
     signup
-    click_link 'ILVA'
+    click_link 'Home Page'
+    click_link 'TEST2'
     click_link 'New post'
-    fill_in 'post_message', with: 'Hello ILVA'
-    expect(page).to have_content('Hello ILVA')
+    fill_in 'post_message', with: 'Hello TEST2'
+    click_button 'Submit'
+    expect(page).to have_content('Hello TEST2')
   end
 
   scenario 'Posts have a like feature' do
@@ -72,7 +83,16 @@ RSpec.feature 'Timeline', type: :feature do
     signup
     create_post
     fill_in 'comment_content', with: 'Awesome'
-    find("#comment_content").send_keys(:enter)
-    expect(page).to have_content('comment: Awesome')
+    click_button 'Moo'
+    expect(page).to have_content('TEST1 Awesome')
+  end
+
+  scenario 'User can delete comments' do
+    signup
+    create_post
+    fill_in 'comment_content', with: 'Awesome'
+    click_button 'Moo'
+    find("#comment").click_link('Delete')
+    expect(page).not_to have_content('TEST1 Awesome')
   end
 end
