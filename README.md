@@ -41,13 +41,13 @@ We used Rubocop to check for styling errors and Simplecov gem to ensure full tes
 
 ## Workflow/ Process
 
-We were using several agile/XP techniques- daily standups and retros, pair programming and a version of [Kanban board]
+We were using several agile/XP techniques- daily standups and retros, pair programming, mobbing and a version of [Kanban board]
 (https://waffle.io/shihhanwang/Acebook-Byte-3/join).
 We also kept a log of the standups, retros and daily work in github wiki.
 
-We had no experience using Ruby or Rails, Travis and Heroku, so learning the technologies was part of the process. Our learning notes can be seen in the project wiki.
+It was the first time we used Ruby on Rails, Travis CI and Heroku, so learning the technologies was part of the process. Our learning notes can be seen in the project wiki.
 
-We used Travis CI and Heroku pipeline for continous delivery
+We used Travis CI and Heroku pipeline for Integration Testing/Continuous Delivery. Heroku Review Apps were particularly useful to track the changes in our application.
 
 ## Team 
 
