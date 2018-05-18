@@ -47,6 +47,14 @@ RSpec.feature 'Timeline', type: :feature do
     expect(page).to_not have_content('Hello, world!')
   end
 
+  scenario 'User can post on other users walls' do
+    signup
+    click_link 'ILVA'
+    click_link 'New post'
+    fill_in 'post_message', with: 'Hello ILVA'
+    expect(page).to have_content('Hello ILVA')
+  end
+
   scenario 'Posts have a like feature' do
     signup
     create_post
@@ -64,7 +72,7 @@ RSpec.feature 'Timeline', type: :feature do
     signup
     create_post
     fill_in 'comment_content', with: 'Awesome'
-    # find("form input[id=comment_content]").set "\n"
+    find("#comment_content").send_keys(:enter)
     expect(page).to have_content('comment: Awesome')
   end
 end
