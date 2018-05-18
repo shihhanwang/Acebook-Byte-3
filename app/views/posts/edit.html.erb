@@ -1,6 +1,8 @@
 <div id="newpost">
   <div class="form-control">
     <%= form_for @post do |form| %>
+      <img class="align-self-start mr-3" src="https://images-na.ssl-images-amazon.com/images/I/41KJ0n3ZezL._SY450_.jpg" alt="Generic placeholder image">
+      <br/>
       <%= form.label :message %>
       <%= form.text_field :message %>
 

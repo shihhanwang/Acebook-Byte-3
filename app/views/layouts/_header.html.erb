@@ -3,6 +3,7 @@
       <ul class="navbar-nav mr-auto">
         <%- if user_signed_in? %>
             <li class="nav-item active">
+              <i class="fa fa-user-circle-o" style="font-size:20px;color:rgb(255, 255, 255)"></i>
               <%= link_to current_user.username.upcase, user_wall_path(current_user.id) %>
             </li>
         <% end -%>
@@ -22,14 +23,16 @@
             </li>
             <li class="nav-item">
               <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+              <i class="fa fa-sign-out" style="font-size:20px;color:rgb(255, 255, 255)"></i>
             </li>
           <% else %>
             <%- if controller_name != 'sessions' %>
               <li class="nav-item">
-                <%= link_to "Log in", new_user_session_path %>
+                <%= link_to "Sign up", new_user_registration_path %>
               </li>
               <li class="nav-item">
-                <%= link_to "Sign up", new_user_registration_path %>
+                <%= link_to "Log in", new_user_session_path %>
+                <i class="fa fa-sign-in" style="font-size:20px;color:rgb(255, 255, 255)"></i>
               </li>
             <% end -%>
           <% end -%>
