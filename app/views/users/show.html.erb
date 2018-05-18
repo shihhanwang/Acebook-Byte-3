@@ -1,5 +1,5 @@
-<h1><%= @user.username %>'s Wall'</h1>
-
+<div class="wall">
+  <h1><%= @user.username %>'s Wall'</h1>
 
 <% @posts.each do |post| %>
 
@@ -31,6 +31,8 @@
   <%= form_for [post, post.comments.new ] do |f| %>
     <%= f.label :comment %>
     <%= f.text_field :content %>
+    <%= f.submit "Moo" %>
   <% end %>
 
 <% end %>
+</div>

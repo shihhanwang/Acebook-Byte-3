@@ -23,4 +23,63 @@ li {
   margin-top: 20%;
 }
 
+.wall {
+  background-color: rgba(219, 217, 208, 0.53);
+}
+
+// #posts{
+//   background-color: rgba(208, 190, 208, 0.66);
+// }
+
+.wrapper, .row {
+   height: 100%;
+   margin-left:0;
+   margin-right:0;
+}
+
+.wrapper:before, .wrapper:after,
+.column:before, .column:after {
+    content: "";
+    display: table;
+}
+
+.wrapper:after,
+.column:after {
+    clear: both;
+}
+
+.panel-default .panel-body {
+  background-color:rgba(231, 225, 233, 0.92);
+  color:#555555;
+  margin-top: 5%;
+  padding-top: 3%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.panel textarea, .well textarea, textarea.form-control
+{
+   resize: none;
+}
+
+#comment a {
+  float: right;
+}
+
+#edit_delete {
+  text-align: right;
+}
+
+#time {
+  text-align: right;
+}
+
+a:link {
+  color:rgba(127, 122, 134, 0.8);
+}
+
+
+
+
+
 @import "bootstrap";
