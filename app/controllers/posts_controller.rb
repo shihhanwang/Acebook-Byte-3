@@ -50,6 +50,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.reverse
+    @user = current_user
   end
 
   private
