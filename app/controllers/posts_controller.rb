@@ -1,9 +1,8 @@
 class PostsController < ApplicationController
-
   before_action :authenticate_user!
 
   def add_like
-    @like = Like.new()
+    @like = Like.new
     @like.post_id = params['post_id']
     @like.user_id = current_user.id
     @like.save
@@ -21,7 +20,7 @@ class PostsController < ApplicationController
   def create
     params = post_params
     params['wall_id'] = params['wall_id'].to_i
-    if(params['wall_id'] == 0)
+    if (params['wall_id']).zero?
       params.delete('wall_id')
     end
     @post = current_user.posts.create(params)
@@ -35,7 +34,6 @@ class PostsController < ApplicationController
     else
       redirect_to posts_url
     end
-
   end
 
   def update
