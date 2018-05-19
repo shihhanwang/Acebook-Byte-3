@@ -55,3 +55,6 @@ We used Travis CI and Heroku pipeline for Integration Testing/Continuous Deliver
 
 
 The app was built as a Makers Academy course project
+
+## Presentation slides
+[Google Slides: Acebook](https://docs.google.com/presentation/d/1VMorvLGi-hFwlhvrPFwiWtlxSVCT6-xWjEun_OfZN58/edit?usp=sharing)
