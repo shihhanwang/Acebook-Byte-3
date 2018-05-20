@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/shihhanwang/Acebook-Byte-3.svg?branch=master)](https://travis-ci.org/shihhanwang/Acebook-Byte-3)
+
 # MooBook
 
 ## Description
