@@ -12,6 +12,9 @@ each user also has their own wall. A user can post on the general wall, any othe
 
 ## Use
 
+Heroku deployment: [link](https://serene-forest-46618.herokuapp.com/)   
+if Heroku deployment is offline:
+
 Clone the repo https://github.com/shihhanwang/Acebook-Byte-3.git
 
 Run `bundle install` (to install dependencies)
